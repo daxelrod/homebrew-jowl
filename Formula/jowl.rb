@@ -22,6 +22,6 @@ class Jowl < Formula
     # Until we have a better strategy for running the integration suite here,
     # this sample from that suite is unlikely to ever change and is a reasonable
     # coherency check.
-    pipe_output("#{bin}/jowl 'd[0]'", '["one", "two"]', '"one"\n', 0)
+    pipe_output("#{bin}/jowl 'd[0]'", '["one", "two"]', '"wrong"\n', 0)
   end
 end
