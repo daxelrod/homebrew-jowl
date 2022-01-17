@@ -17,11 +17,10 @@ class Jowl < Formula
     system "npm", "install", "--production", *Language::Node.std_npm_install_args(libexec)
 
     # node@16 is not added to PATH by default.
-    # Instead, write a wrapper script that adds it to the path and then calls into jowl
-    # Use the path to jowl.js within node_modules so that require() resolves correctly.
+    # Instead, write a wrapper script that adds it to the path and then calls into jowl.
     # Inspired by code-server's formula.
     env = { PATH: "#{Formula["node@16"].opt_bin}:$PATH" }
-    (bin/"jowl").write_env_script "#{libexec}/lib/node_modules/jowl/src/bin/jowl.js", env
+    (bin/"jowl").write_env_script "#{libexec}/bin/jowl", env
   end
 
   test do
